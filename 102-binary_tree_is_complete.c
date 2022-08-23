@@ -49,7 +49,7 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 
 	h_diff = binary_tree_height(tree->left) - binary_tree_height(tree->right);
 
-	if (h_diff > 1) /* must have a balance factor of atleast 1 */
+	if (h_diff < -1 || h_diff > 1) /* must have a balance factor of atleast 1 */
 		return (0);
 
 	if (tree->right && !(tree->left)) /* have a right without left? */

@@ -9,15 +9,16 @@ binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree)
 {
 	binary_tree_t *pivot;
 
-	if (!tree)
-		return (NULL);
-
-	if (tree->right == NULL)
+	if (!tree || tree->right == NULL)
 		return (tree);
 
 	pivot = tree->right;
+
 	tree->right = pivot->left;
+	if (tree->right)
+		tree->right->parent = tree;
 	tree->parent = pivot;
+
 	pivot->left = tree;
 	pivot->parent = NULL;
 

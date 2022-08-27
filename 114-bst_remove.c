@@ -13,6 +13,8 @@ bst_t *bst_min_node(bst_t *tree)
 	if (!(tree->left) && !(tree->right))
 		return (tree);
 
+	if (tree->left == NULL)
+		return (tree);
 	return (bst_min_node(tree->left));
 }
 
@@ -59,8 +61,6 @@ bst_t *remove_node_with_two_children(bst_t *root, bst_t *node)
 	bst_t *replace;
 
 	replace = bst_min_node(node->right);
-	if (!node->right) /* node->right->left is NULL */
-		replace = node->right;
 
 	if (replace->parent && replace == replace->parent->left)
 		replace->parent->left = NULL;

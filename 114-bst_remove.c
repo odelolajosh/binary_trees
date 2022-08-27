@@ -124,7 +124,7 @@ bst_t *bst_remove(bst_t *root, int value)
 
 	node = bst_search(root, value);
 	if (!node)
-		return (NULL);
+		return (root);
 
 	if (!(node->left) && !(node->right))
 	{
@@ -132,6 +132,8 @@ bst_t *bst_remove(bst_t *root, int value)
 			node->parent->left = NULL;
 		if (node == node->parent->right)
 			node->parent->right = NULL;
+		if (node == root)
+			root = NULL;
 		free(node);
 		return (root);
 	}

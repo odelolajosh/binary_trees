@@ -2,7 +2,7 @@
 #include "limits.h"
 
 /**
- * binary_tree_height - measures the height of a binary tree
+ * binary_tree_height2 - measures the height of a binary tree
  * @tree: pointer to the root node of the tree to measure the height
  * Return: the height of tree on success, otherwise 0
  */
@@ -46,13 +46,13 @@ int binary_tree_is_bst_impl(const binary_tree_t *tree, int min, int max)
 int binary_tree_is_bst(const binary_tree_t *tree)
 {
 	if (!tree)
-		return (0);	
+		return (0);
 
 	return (binary_tree_is_bst_impl(tree, INT_MIN, INT_MAX));
 }
 
 /**
- * binary_tree_height - measures the height of a binary tree
+ * binary_tree_is_balanced - measures the height of a binary tree
  * @tree: pointer to the root node of the tree to measure the height
  * Return: the height of tree on success, otherwise 0
  */
@@ -66,10 +66,10 @@ size_t binary_tree_is_balanced(const binary_tree_t *tree)
 	balance = binary_tree_height2(tree->left) - binary_tree_height2(tree->right);
 	if (balance < 0)
 		balance *= -1;
-	
+
 	if (balance > 1)
 		return (0);
-	
+
 	return (binary_tree_is_balanced(tree->left)
 		&& binary_tree_is_balanced(tree->right));
 }

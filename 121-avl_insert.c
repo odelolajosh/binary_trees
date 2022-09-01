@@ -78,6 +78,7 @@ avl_t *avl_retrace(avl_t **root, avl_t *node)
  * @tree: a double pointer to the root node of the AVL tree
  * for inserting the value
  * @value: the value to store in the node to be inserted
+ * Return: a pointer to the inserted node
  */
 avl_t *avl_insert(avl_t **tree, int value)
 {

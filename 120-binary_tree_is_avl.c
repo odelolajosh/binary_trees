@@ -52,7 +52,8 @@ int binary_tree_is_bst(const binary_tree_t *tree)
 }
 
 /**
- * binary_tree_is_balanced - measures the height of a binary tree
+ * binary_tree_is_balanced - checks a tree is balanced
+ * The balance factor of a balanced belongs to the set [-1, 0, -1]
  * @tree: pointer to the root node of the tree to measure the height
  * Return: the height of tree on success, otherwise 0
  */
